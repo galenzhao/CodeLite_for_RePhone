@@ -31,6 +31,7 @@ extern int luaopen_screen(lua_State *L);
 extern int luaopen_i2c(lua_State *L);
 extern int luaopen_tcp(lua_State* L);
 extern int luaopen_https(lua_State* L);
+extern int luaopen_gatt(lua_State* L);
 
 lua_State *L = NULL;
 
@@ -150,6 +151,7 @@ void lua_setup()
     luaopen_i2c(L);
     luaopen_tcp(L);
     luaopen_https(L);
+    luaopen_gatt(L);
 
     lua_register(L, "msleep", msleep_c);
 
@@ -216,7 +218,7 @@ void customer_timer_non_precise_proc(VM_TIMER_ID_NON_PRECISE timer_id, void* use
     VM_RESULT result = app_send_indication(VM_FALSE, &gatt_attribute_value_t);
     vm_log_debug("non precise proc duration %d stop count %d\n", duration, g_non_precise_stop_count);
     vm_log_debug("%d, %d\n", gatt_attribute_value_t.data[0], result);
-    
+
     g_precise_start_count = g_non_precise_stop_count;
 
 }

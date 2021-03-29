@@ -2,7 +2,7 @@
 WORKSPACE_PATH = ../
 PROJECT = lua
 
-OBJECTS += GATTServer.o main.o retarget.o shell.o audio.o gsm.o timer.o gpio.o screen.o i2c.o tcp.o https.o
+OBJECTS += gatt.o GATTServer.o main.o retarget.o shell.o audio.o gsm.o timer.o gpio.o screen.o i2c.o tcp.o https.o
 
 WORKSPACE_PATH = ../
 

@@ -10,6 +10,9 @@
 
 #include "lua.h"
 #include "lauxlib.h"
+#include "GATTServer.h"
+
+extern vm_bt_gatt_attribute_value_t gatt_attribute_value_t;
 
 enum VoiceCall_Status { IDLE_CALL, CALLING, RECEIVINGCALL, TALKING };
 
@@ -41,7 +44,8 @@ void call_listener_func(vm_gsm_tel_call_listener_data_t *data) {
         lua_pushstring(L, g_incoming_number);
         lua_call(L, 1, 0);
     }
-
+    // todo notify
+    
   }
 
   else if (data->call_type == VM_GSM_TEL_INDICATION_OUTGOING_CALL) {
